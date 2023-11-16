@@ -8,7 +8,7 @@ items = [
      'quantity': 5,
      'unit': 'pcs',
      'unit_price': 200},
-    {'name': 'koszulka',
+    {'name': 't-shirt',
      'quantity': 13,
      'unit': 'pcs',
      'unit_price': 50}
@@ -17,12 +17,11 @@ items = [
 def list_items():
     print(items)
     
-def get_items():
-    print("Name\tQuantity\tUnit\tUnit Price (PLN)")
+def show():
+    print("{:<8} {:<8} {:<8} {:<16}".format("Name", "Quantity", "Unit", "Unit Price (PLN)"))
+    print("{:<8} {:<8} {:<8} {:<16}".format("----", "--------", "----", "----------------"))
     for item in items:
-        #TODO
-        print(item['name'] +'\t'+ str(item['quantity']) +'\t'+item['unit'] +'\t'+ str(item['unit_price']))
-
+        print("{:<8} {:<8} {:<8} {:<16}".format(item['name'], item['quantity'], item['unit'], item['unit_price']))
 def menu():
     while True:
         user_input = input("What would you like to do? (show, list, exit)\n")
@@ -30,8 +29,9 @@ def menu():
         if user_input == 'list':
             list_items()
         elif user_input == 'show':
-            get_items()
+            show()
         elif user_input == 'exit':
+            print("Exiting...")
             exit()
         else:
             continue
